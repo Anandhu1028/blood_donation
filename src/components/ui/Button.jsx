@@ -12,7 +12,12 @@ export function Button({
         primary: 'btn-primary',
         secondary: 'btn-secondary',
         outline: 'btn-outline',
+
         ghost: 'btn-ghost',
+
+        // NEW VARIANTS
+        success: 'bg-[#065F46] text-white hover:bg-[#064E3B]',// GREEN BUTTON
+        'danger-outline': 'border border-red-500 text-red-500 hover:bg-red-50',   // RED OUTLINE
     };
 
     const sizes = {
@@ -23,7 +28,12 @@ export function Button({
 
     return (
         <button
-            className={cn('btn', variants[variant], sizes[size], className)}
+            className={cn(
+                'btn transition-colors duration-200 rounded-md',
+                variants[variant],
+                sizes[size],
+                className
+            )}
             disabled={disabled}
             {...props}
         >

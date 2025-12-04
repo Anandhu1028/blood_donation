@@ -142,16 +142,18 @@ export function HospitalsPage() {
                                             {/* ACTION BUTTONS */}
                                             <div className="flex flex-wrap gap-4">
                                                 <a href={`tel:${request.contactPhone}`}>
-                                                    <Button>
+                                                    <Button variant="success">
                                                         <Phone className="w-4 h-4 mr-1" />
                                                         Call Hospital
                                                     </Button>
+
                                                 </a>
 
-                                                <Button variant="outline">
+                                               <Button variant="danger-outline">
                                                     <MapPin className="w-4 h-4 mr-1" />
                                                     View on Map
                                                 </Button>
+
 
                                                 <Button variant="ghost">
                                                     I Can Donate

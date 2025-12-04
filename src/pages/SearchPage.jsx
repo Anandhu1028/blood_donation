@@ -306,11 +306,12 @@ export function SearchPage() {
                               </Button>
 
                               <a href={`tel:${donor.phone}`} aria-label={`Call ${donor.name}`}>
-                                <Button size="sm" variant="outline">
-                                  <Phone className="w-4 h-4 mr-2" />
-                                  Call
-                                </Button>
-                              </a>
+  <Button size="sm" variant="success">
+    <Phone className="w-4 h-4 mr-2 text-white" />
+    Call
+  </Button>
+</a>
+
 
                               <a href={`mailto:${donor.email}`} aria-label={`Email ${donor.name}`}>
                                 <Button size="sm" variant="ghost">
