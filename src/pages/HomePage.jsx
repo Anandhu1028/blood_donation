@@ -16,7 +16,16 @@ import {
     Zap,
     Star,
     TrendingUp,
-    Phone
+    Phone,
+    Calendar,
+    Scale,
+    XCircle,
+    AlertCircle,
+    HeartPulse,
+    Brain,
+    Smile,
+    ShieldCheck,
+    UserCheck
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card, CardBody } from '../components/ui/Card';
@@ -344,7 +353,7 @@ export function HomePage() {
                     </motion.div>
 
                     <div className="grid md:grid-cols-4 gap-8 relative">
-                       
+
                         {[
                             { icon: UserPlus, title: 'Register', desc: 'Create your donor profile in under 2 minutes.', color: 'text-blue-500', bg: 'bg-blue-500/10' },
                             { icon: Search, title: 'Find / Be Found', desc: 'Advanced algorithms match donors with patients.', color: 'text-purple-500', bg: 'bg-purple-500/10' },
@@ -370,6 +379,350 @@ export function HomePage() {
                                 </Card>
                             </motion.div>
                         ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ELIGIBILITY CRITERIA - Full Content */}
+            <section className="section relative">
+                <div className="container-custom px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+                            Can You <span className="gradient-text">Donate Blood?</span>
+                        </h2>
+                        <p className="text-xl text-page-subtle max-w-2xl mx-auto">
+                            Most people can give blood. Check the basic eligibility requirements below to see if you're ready to be a lifesaver.
+                        </p>
+                    </motion.div>
+
+                    {/* Core Requirements Grid */}
+                    <div className="grid md:grid-cols-3 gap-8 mb-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="bg-card border border-page-border p-8 rounded-3xl text-center hover:border-accent/50 transition-colors"
+                        >
+                            <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 text-accent">
+                                <Calendar className="w-8 h-8" />
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Age Requirement</h3>
+                            <p className="text-page-subtle">
+                                You must be between <strong>18 and 65 years old</strong>.
+                                <br /><span className="text-sm opacity-75">(16-17 with parental consent in some regions)</span>
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="bg-card border border-page-border p-8 rounded-3xl text-center hover:border-accent/50 transition-colors"
+                        >
+                            <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-500">
+                                <Scale className="w-8 h-8" />
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Weight</h3>
+                            <p className="text-page-subtle">
+                                You should weigh at least <strong>50 kg (110 lbs)</strong> to ensure it's safe for your body to donate.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="bg-card border border-page-border p-8 rounded-3xl text-center hover:border-accent/50 transition-colors"
+                        >
+                            <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6 text-green-500">
+                                <Heart className="w-8 h-8" />
+                            </div>
+                            <h3 className="text-xl font-bold mb-3">Overall Health</h3>
+                            <p className="text-page-subtle">
+                                You must be in good health and feel well on the day of donation. No colds, flu, or infections.
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    {/* Detailed Lists */}
+                    <div className="grid md:grid-cols-2 gap-12 mb-20">
+                        {/* Who CAN Donate */}
+                        <div className="space-y-6">
+                            <h2 className="text-3xl font-bold flex items-center gap-3">
+                                <CheckCircle className="text-green-500 w-8 h-8" />
+                                You Can Donate If...
+                            </h2>
+                            <ul className="space-y-4">
+                                {[
+                                    "Your hemoglobin level is at least 12.5 g/dL.",
+                                    "Pulse rate is between 50 and 100 beats per minute.",
+                                    "Blood pressure is within normal limits.",
+                                    "It has been 3 months since your last whole blood donation.",
+                                    "You have eaten a healthy meal before donating.",
+                                    "You are well-hydrated."
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 p-4 bg-card/50 rounded-xl border border-page-border">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2.5 flex-shrink-0" />
+                                        <span className="text-page-subtle">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Who Cannot Donate */}
+                        <div className="space-y-6">
+                            <h2 className="text-3xl font-bold flex items-center gap-3">
+                                <XCircle className="text-red-500 w-8 h-8" />
+                                Temporary Deferrals
+                            </h2>
+                            <ul className="space-y-4">
+                                {[
+                                    "You have a cold, flu, or fever on the day of donation.",
+                                    "You have had a tattoo or piercing in the last 6-12 months.",
+                                    "You have traveled to malaria-endemic areas recently.",
+                                    "You are pregnant or breastfeeding (wait 6 months after delivery/weaning).",
+                                    "You have had major surgery recently.",
+                                    "You are on antibiotics for an infection."
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3 p-4 bg-card/50 rounded-xl border border-page-border">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2.5 flex-shrink-0" />
+                                        <span className="text-page-subtle">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Permanent Exclusions */}
+                    <div className="bg-red-500/5 border border-red-500/20 rounded-3xl p-8 md:p-12">
+                        <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="bg-red-500/10 p-4 rounded-full text-red-500 flex-shrink-0">
+                                <AlertCircle className="w-8 h-8" />
+                            </div>
+                            <div>
+                                <h3 className="text-2xl font-bold mb-4 text-page">Permanent Exclusions</h3>
+                                <p className="text-page-subtle mb-6">
+                                    For the safety of both donors and recipients, some conditions permanently prevent blood donation.
+                                    These include HIV/AIDS, Hepatitis B or C, cardiac arrest, kidney failure, and certain types of cancer.
+                                </p>
+                                <p className="text-sm text-page-subtle italic">
+                                    * Consult with a medical professional at the donation center if you have specific concerns about your eligibility.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* DONATION PROCESS - Full Content */}
+            <section className="section relative bg-card/30">
+                <div className="container-custom px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+                            The Donation <span className="gradient-text">Process</span>
+                        </h2>
+                        <p className="text-xl text-page-subtle max-w-2xl mx-auto">
+                            Donating blood is simple, safe, and takes less than an hour. Here's exactly what to expect from start to finish.
+                        </p>
+                    </motion.div>
+
+                    {/* Steps Timeline */}
+                    <div className="relative max-w-4xl mx-auto mb-32">
+                        {/* Vertical Line (Desktop) */}
+                        <div className="absolute left-1/2 top-0 bottom-0 w-px bg-page-border hidden md:block -translate-x-1/2" />
+
+                        <div className="space-y-12 md:space-y-24">
+                            {[
+                                {
+                                    icon: UserPlus,
+                                    title: "Registration",
+                                    desc: "You'll sign in, show ID, and complete a basic health history questionnaire to ensure you're eligible.",
+                                    time: "10-15 mins"
+                                },
+                                {
+                                    icon: Activity,
+                                    title: "Health Screening",
+                                    desc: "A staff member will check your temperature, pulse, blood pressure, and hemoglobin levels.",
+                                    time: "5-10 mins"
+                                },
+                                {
+                                    icon: Droplet,
+                                    title: "The Donation",
+                                    desc: "You'll sit in a comfortable chair while a pint of blood is drawn. It's quick and relatively painless.",
+                                    time: "8-10 mins"
+                                },
+                                {
+                                    icon: Heart,
+                                    title: "Refreshment & Recovery",
+                                    desc: "Relax for a few minutes with a snack and drink to replenish your fluids before you leave.",
+                                    time: "10-15 mins"
+                                }
+                            ].map((step, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1 }}
+                                    className={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}
+                                >
+                                    {/* Content Side */}
+                                    <div className="flex-1 text-center md:text-left">
+                                        <div className={`flex flex-col ${index % 2 === 0 ? 'md:items-start' : 'md:items-end md:text-right'}`}>
+                                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-3">
+                                                <Clock className="w-3 h-3" /> {step.time}
+                                            </div>
+                                            <h3 className="text-2xl font-bold mb-3">
+                                                <span className="text-accent mr-2">{index + 1}.</span>
+                                                {step.title}
+                                            </h3>
+                                            <p className="text-page-subtle leading-relaxed">
+                                                {step.desc}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Icon Center */}
+                                    <div className="relative z-10 flex-shrink-0">
+                                        <div className="w-20 h-20 rounded-full bg-card border-4 border-page flex items-center justify-center shadow-xl shadow-accent/10">
+                                            <step.icon className="w-8 h-8 text-accent" />
+                                        </div>
+                                    </div>
+
+                                    {/* Empty Side for Balance */}
+                                    <div className="flex-1 hidden md:block" />
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Preparation Tips */}
+                    <div className="max-w-5xl mx-auto">
+                        <h2 className="text-3xl font-bold text-center mb-12">How to Prepare</h2>
+                        <div className="grid md:grid-cols-3 gap-6">
+                            <div className="bg-card border border-page-border p-6 rounded-2xl">
+                                <div className="text-4xl mb-4">💧</div>
+                                <h3 className="text-lg font-bold mb-2">Hydrate</h3>
+                                <p className="text-page-subtle text-sm">Drink an extra 16 oz. of water before your appointment.</p>
+                            </div>
+                            <div className="bg-card border border-page-border p-6 rounded-2xl">
+                                <div className="text-4xl mb-4">🥗</div>
+                                <h3 className="text-lg font-bold mb-2">Eat Well</h3>
+                                <p className="text-page-subtle text-sm">Have a healthy meal, avoiding fatty foods like burgers or fries.</p>
+                            </div>
+                            <div className="bg-card border border-page-border p-6 rounded-2xl">
+                                <div className="text-4xl mb-4">🪪</div>
+                                <h3 className="text-lg font-bold mb-2">Bring ID</h3>
+                                <p className="text-page-subtle text-sm">Don't forget your driver's license or donor ID card.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* HEALTH BENEFITS - Full Content */}
+            <section className="section relative">
+                <div className="container-custom px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
+                            Health <span className="gradient-text">Benefits</span>
+                        </h2>
+                        <p className="text-xl text-page-subtle max-w-2xl mx-auto">
+                            Saving lives is the primary motivation, but did you know donating blood has surprising health benefits for you too?
+                        </p>
+                    </motion.div>
+
+                    {/* Benefits Grid */}
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+                        {[
+                            {
+                                icon: HeartPulse,
+                                title: "Heart Health",
+                                desc: "Regular blood donation helps reduce the viscosity of blood, which may lower the risk of heart attacks and strokes."
+                            },
+                            {
+                                icon: Activity,
+                                title: "Free Health Checkup",
+                                desc: "Every time you donate, you get a mini-physical checking your pulse, blood pressure, body temperature, and hemoglobin."
+                            },
+                            {
+                                icon: ShieldCheck,
+                                title: "Iron Balance",
+                                desc: "Donating helps balance iron levels in the body. Excess iron can cause oxidative stress, which is harmful to tissues."
+                            },
+                            {
+                                icon: Brain,
+                                title: "Mental Well-being",
+                                desc: "The psychological benefit of knowing you're saving lives can reduce stress and improve your overall sense of well-being."
+                            },
+                            {
+                                icon: UserCheck,
+                                title: "Calorie Burn",
+                                desc: "The body works to replenish the lost blood, burning approximately 650 calories per donation process."
+                            },
+                            {
+                                icon: Smile,
+                                title: "Liver Health",
+                                desc: "By reducing excess iron stores, blood donation can lower the risk of liver damage and related ailments."
+                            }
+                        ].map((benefit, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.1 }}
+                                className="bg-card border border-page-border p-8 rounded-3xl hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all group"
+                            >
+                                <div className="w-14 h-14 bg-page-border/30 rounded-2xl flex items-center justify-center mb-6 text-page group-hover:bg-accent group-hover:text-white transition-colors">
+                                    <benefit.icon className="w-7 h-7" />
+                                </div>
+                                <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">{benefit.title}</h3>
+                                <p className="text-page-subtle leading-relaxed">
+                                    {benefit.desc}
+                                </p>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    {/* Highlight Section */}
+                    <div className="flex flex-col md:flex-row items-center gap-12 bg-card border border-page-border rounded-3xl p-8 md:p-12">
+                        <div className="flex-1">
+                            <h2 className="text-3xl font-bold mb-6">The "Helper's High"</h2>
+                            <p className="text-page-subtle text-lg mb-6 leading-relaxed">
+                                Psychological research suggests that altruistic acts like blood donation release endorphins, creating a positive feeling known as the "helper's high."
+                                <br /><br />
+                                Regular donors often report a sense of belonging and reduced isolation, contributing to better mental health and longevity.
+                            </p>
+                            <Link to="/register">
+                                <Button>Experience It Yourself</Button>
+                            </Link>
+                        </div>
+                        <div className="flex-1 relative">
+                            <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 blur-3xl rounded-full" />
+                            <div className="relative bg-page p-8 rounded-2xl border border-page-border shadow-xl text-center">
+                                <div className="text-6xl font-black gradient-text mb-2">3</div>
+                                <div className="text-xl font-bold text-page">Lives Saved</div>
+                                <div className="text-sm text-page-subtle mt-2">Per single donation</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

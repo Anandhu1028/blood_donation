@@ -27,11 +27,11 @@ export function Footer() {
     ];
 
     const resources = [
-        { label: 'Blood Donation Facts', path: '#' },
-        { label: 'Eligibility Criteria', path: '#' },
-        { label: 'Donation Process', path: '#' },
-        { label: 'Health Benefits', path: '#' },
-        { label: 'FAQs', path: '#' },
+        { label: 'Blood Donation Facts', path: '/about' },
+        { label: 'Eligibility Criteria', path: '/eligibility' },
+        { label: 'Donation Process', path: '/process' },
+        { label: 'Health Benefits', path: '/benefits' },
+        { label: 'FAQs', path: '/faq' },
     ];
 
     const socialLinks = [
@@ -150,7 +150,7 @@ export function Footer() {
                             <li className="flex items-start gap-3 text-page-subtle">
                                 <Mail className="w-5 h-5 text-accent mt-0.5 icon-float" />
                                 <a href="mailto:contact@bloodlife.com" className="hover:text-accent transition-colors">
-                                   focuzonfutures@gmail.com
+                                    focuzonfutures@gmail.com
                                 </a>
                             </li>
 
