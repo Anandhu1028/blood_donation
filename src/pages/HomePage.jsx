@@ -129,7 +129,7 @@ export function HomePage() {
                                 transition={{ delay: 0.2 }}
                                 className="inline-block mb-6"
                             >
-                                <span className="px-6 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-red-500/30 text-red-400 text-sm font-bold uppercase tracking-wider backdrop-blur-xl">
+                                <span className="px-6 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-red-500/30 text-white-400 text-sm  uppercase tracking-wider backdrop-blur-xl">
                                     🩸 Saving Lives, One Drop at a Time
                                 </span>
                             </motion.div>

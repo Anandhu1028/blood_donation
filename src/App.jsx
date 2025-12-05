@@ -7,6 +7,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { HospitalsPage } from './pages/HospitalsPage';
+import { HospitalDashboardPage } from './pages/HospitalDashboardPage';
 import { AboutPage } from './pages/AboutPage';
 import { EligibilityPage } from './pages/EligibilityPage';
 import { DonationProcessPage } from './pages/DonationProcessPage';
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/hospitals" element={<HospitalsPage />} />
+          <Route path="/hospital-dashboard" element={<HospitalDashboardPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/eligibility" element={<EligibilityPage />} />
           <Route path="/process" element={<DonationProcessPage />} />
