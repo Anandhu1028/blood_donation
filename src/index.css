@@ -258,11 +258,13 @@ textarea {
   }
 
   .btn-outline {
-    @apply border-2 border-red-500 text-red-600 hover:bg-red-50 bg-white;
+    @apply border-2 border-accent bg-white text-gray-900 hover:bg-accent hover:text-white;
+    font-weight: 600;
   }
 
   .btn-ghost {
-    @apply text-red-600 hover:bg-red-50;
+    @apply text-gray-900 hover:bg-accent/10 hover:text-accent;
+    font-weight: 600;
   }
 
   /* Vibrant Card */

@@ -191,61 +191,126 @@ export function HomePage() {
                             </motion.div>
                         </motion.div>
 
-                        {/* Right Content - 3D Blood Groups */}
+                        {/* Right Content - Blood Mascot */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 1, delay: 0.3 }}
-                            className="hidden lg:block perspective-2000"
+                            className="perspective-2000 relative"
                         >
-                            <div className="relative transform-3d">
-                                {/* Circular arrangement */}
-                                <div className="relative w-[500px] h-[500px] mx-auto">
-                                    {bloodGroups.map((group, index) => {
-                                        const angle = (index * 360) / bloodGroups.length;
-                                        const radius = 180;
-                                        const x = Math.cos((angle * Math.PI) / 180) * radius;
-                                        const y = Math.sin((angle * Math.PI) / 180) * radius;
+                            {/* Multiple Layered Red Glow Background */}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.3, 1],
+                                    opacity: [0.4, 0.8, 0.4],
+                                }}
+                                transition={{
+                                    duration: 2,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                className="absolute inset-0 bg-gradient-radial from-red-600/60 via-red-500/30 to-transparent blur-3xl"
+                            />
 
-                                        return (
-                                            <motion.div
-                                                key={group}
-                                                initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                                                transition={{
-                                                    delay: 0.5 + index * 0.1,
-                                                    type: "spring",
-                                                    stiffness: 200,
-                                                }}
-                                                className="absolute top-1/2 left-1/2"
-                                                style={{
-                                                    transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                                                }}
-                                            >
-                                                <BloodGroupBadge bloodGroup={group} size="xl" animate />
-                                            </motion.div>
-                                        );
-                                    })}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.4, 1],
+                                    opacity: [0.3, 0.7, 0.3],
+                                }}
+                                transition={{
+                                    duration: 2.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.5,
+                                }}
+                                className="absolute inset-0 bg-gradient-radial from-red-500/50 via-pink-500/25 to-transparent blur-2xl"
+                            />
 
-                                    {/* Center Droplet */}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.2, 1],
+                                    opacity: [0.5, 0.9, 0.5],
+                                }}
+                                transition={{
+                                    duration: 1.8,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: 0.3,
+                                }}
+                                className="absolute inset-0 bg-gradient-radial from-red-400/40 via-red-300/20 to-transparent blur-xl"
+                            />
+
+                            {/* Blood Mascot Image with Heartbeat */}
+                            <motion.div
+                                animate={{
+                                    scale: [1, 1.05, 1],
+                                }}
+                                transition={{
+                                    duration: 1.5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                }}
+                                className="relative z-10"
+                            >
+                                <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto">
+                                    {/* Rotating Red Glow Orbs */}
                                     <motion.div
                                         animate={{
-                                            scale: [1, 1.1, 1],
-                                            rotate: [0, 360],
+                                            rotate: 360,
                                         }}
                                         transition={{
                                             duration: 20,
                                             repeat: Infinity,
                                             ease: "linear",
                                         }}
-                                        className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                                        className="absolute inset-0"
                                     >
-                                        <div className="w-32 h-32 rounded-full bg-gradient-to-br from-red-500 to-purple-600 flex items-center justify-center shadow-neon-red">
-                                            <Droplet className="w-16 h-16 text-white" fill="currentColor" />
-                                        </div>
+                                        <div className="absolute top-0 left-1/2 w-40 h-40 bg-red-500/40 rounded-full blur-3xl -translate-x-1/2 shadow-[0_0_60px_rgba(239,68,68,0.6)]" />
+                                        <div className="absolute bottom-0 right-1/2 w-40 h-40 bg-red-600/40 rounded-full blur-3xl translate-x-1/2 shadow-[0_0_60px_rgba(220,38,38,0.6)]" />
+                                        <div className="absolute top-1/2 left-0 w-32 h-32 bg-pink-500/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(236,72,153,0.5)]" />
+                                        <div className="absolute top-1/2 right-0 w-32 h-32 bg-red-400/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(248,113,113,0.5)]" />
                                     </motion.div>
+
+                                    {/* Main Image with Enhanced Red Shadow */}
+                                    <motion.img
+                                        src="/images/blood-mascot.png"
+                                        alt="Blood Donation Mascot"
+                                        className="relative z-10 w-full h-full object-contain"
+                                        style={{
+                                            filter: 'drop-shadow(0 0 40px rgba(167, 0, 22, 0.8)) drop-shadow(0 0 20px rgba(220, 38, 38, 0.9))',
+                                        }}
+                                        animate={{
+                                            y: [0, -10, 0],
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                        }}
+                                    />
+
+                                    {/* Red Sparkle Effects */}
+                                    {[...Array(8)].map((_, i) => (
+                                        <motion.div
+                                            key={i}
+                                            animate={{
+                                                scale: [0, 1, 0],
+                                                opacity: [0, 1, 0],
+                                            }}
+                                            transition={{
+                                                duration: 2,
+                                                repeat: Infinity,
+                                                delay: i * 0.3,
+                                            }}
+                                            className="absolute w-3 h-3 bg-red-300 rounded-full shadow-[0_0_10px_rgba(252,165,165,0.8)]"
+                                            style={{
+                                                top: `${Math.random() * 100}%`,
+                                                left: `${Math.random() * 100}%`,
+                                            }}
+                                        />
+                                    ))}
                                 </div>
-                            </div>
+                            </motion.div>
                         </motion.div>
                     </div>
                 </div>

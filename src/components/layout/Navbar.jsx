@@ -174,6 +174,113 @@ export function Navbar() {
                         {isOpen ? <X className="w-6 h-6 text-page" /> : <Menu className="w-6 h-6 text-page" />}
                     </button>
                 </div>
+
+                {/* Mobile Menu */}
+                <AnimatePresence>
+                    {isOpen && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="md:hidden border-t border-page-border overflow-hidden"
+                        >
+                            <div className="px-4 py-6 space-y-4">
+                                {/* Mobile Navigation Links */}
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        onClick={() => setIsOpen(false)}
+                                        className={`block px-4 py-3 rounded-xl transition-all ${isActive(link.path)
+                                                ? 'bg-accent/10 text-accent border border-accent/30'
+                                                : 'bg-white/5 text-page-subtle hover:bg-white/10 hover:text-page border border-page-border'
+                                            }`}
+                                    >
+                                        <span className="font-semibold uppercase text-sm tracking-wider">
+                                            {link.label}
+                                        </span>
+                                    </Link>
+                                ))}
+
+                                {/* Mobile Theme Toggle */}
+                                <button
+                                    onClick={toggleTheme}
+                                    className="w-full px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-page-border transition-all flex items-center justify-between"
+                                >
+                                    <span className="font-semibold text-sm text-page-subtle">Theme</span>
+                                    {theme === 'dark' ? (
+                                        <Sun className="w-5 h-5 text-yellow-400" />
+                                    ) : (
+                                        <Moon className="w-5 h-5 text-blue-400" />
+                                    )}
+                                </button>
+
+                                {/* Mobile Language Selector */}
+                                <div className="space-y-2">
+                                    <div className="px-4 py-2 text-sm font-semibold text-page-subtle">Language</div>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {['en', 'es', 'fr', 'hi'].map((lang) => (
+                                            <button
+                                                key={lang}
+                                                onClick={() => {
+                                                    changeLanguage(lang);
+                                                    setShowLangMenu(false);
+                                                }}
+                                                className={`px-4 py-2 rounded-xl transition-all text-sm font-medium ${language === lang
+                                                        ? 'bg-accent/10 text-accent border border-accent/30'
+                                                        : 'bg-white/5 text-page-subtle hover:bg-white/10 border border-page-border'
+                                                    }`}
+                                            >
+                                                {lang.toUpperCase()}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Mobile User Actions */}
+                                <div className="pt-4 border-t border-page-border space-y-3">
+                                    {currentDonor ? (
+                                        <>
+                                            <Link to="/dashboard" onClick={() => setIsOpen(false)}>
+                                                <button className="w-full px-4 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-page-border transition-all flex items-center gap-3">
+                                                    <User className="w-5 h-5 text-accent" />
+                                                    <span className="font-semibold text-page">
+                                                        {currentDonor.name}
+                                                    </span>
+                                                </button>
+                                            </Link>
+                                            <button
+                                                onClick={() => {
+                                                    logoutDonor();
+                                                    setIsOpen(false);
+                                                }}
+                                                className="w-full px-4 py-3 rounded-xl bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 transition-all flex items-center justify-center gap-2"
+                                            >
+                                                <LogOut className="w-5 h-5 text-accent" />
+                                                <span className="font-semibold text-accent">Logout</span>
+                                            </button>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Link to="/login" onClick={() => setIsOpen(false)}>
+                                                <Button variant="ghost" className="w-full">
+                                                    Login
+                                                </Button>
+                                            </Link>
+                                            <Link to="/register" onClick={() => setIsOpen(false)}>
+                                                <Button className="w-full">
+                                                    <Zap className="w-4 h-4" />
+                                                    {t('register')}
+                                                </Button>
+                                            </Link>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </nav>
 
