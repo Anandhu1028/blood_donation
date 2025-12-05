@@ -15,7 +15,8 @@ import {
     CheckCircle,
     Zap,
     Star,
-    TrendingUp
+    TrendingUp,
+    Phone
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card, CardBody } from '../components/ui/Card';
@@ -137,7 +138,7 @@ export function HomePage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="text-2xl text-gray-400 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                                className="text-2xl text-page-subtle mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
                             >
                                 The world's most advanced blood donor network. Connect instantly with verified donors and save lives in real-time.
                             </motion.p>
@@ -175,7 +176,7 @@ export function HomePage() {
                                         <div className={`text-4xl font-black ${stat.color} mb-1`}>
                                             {stat.value}{stat.suffix}
                                         </div>
-                                        <div className="text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+                                        <div className="text-xs text-page-subtle uppercase tracking-wider">{stat.label}</div>
                                     </div>
                                 ))}
                             </motion.div>
@@ -275,7 +276,7 @@ export function HomePage() {
                                         <div className={`text-5xl font-black ${stat.color} mb-2`}>
                                             {stat.value}{stat.suffix}
                                         </div>
-                                        <div className="text-gray-400 uppercase tracking-wider text-sm">{stat.label}</div>
+                                        <div className="text-page-subtle uppercase tracking-wider text-sm">{stat.label}</div>
                                     </CardBody>
                                 </Card>
                             </motion.div>
@@ -296,7 +297,7 @@ export function HomePage() {
                         <h2 className="text-6xl font-display font-black mb-6">
                             <span className="gradient-text">Next-Gen Features</span>
                         </h2>
-                        <p className="text-2xl text-gray-400 max-w-3xl mx-auto">
+                        <p className="text-2xl text-page-subtle max-w-3xl mx-auto">
                             Powered by cutting-edge technology to deliver the fastest, most reliable blood donor network on the planet.
                         </p>
                     </motion.div>
@@ -316,7 +317,55 @@ export function HomePage() {
                                             <feature.icon className="w-10 h-10 text-white" />
                                         </div>
                                         <h3 className="text-2xl font-bold mb-3 text-white">{feature.title}</h3>
-                                        <p className="text-gray-400 leading-relaxed">{feature.description}</p>
+                                        <p className="text-page-subtle leading-relaxed">{feature.description}</p>
+                                    </CardBody>
+                                </Card>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* How It Works Section */}
+            <section className="section relative bg-page-border/5">
+                <div className="container-custom px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-5xl font-display font-black mb-6">
+                            <span className="gradient-text">How It Works</span>
+                        </h2>
+                        <p className="text-xl text-page-subtle max-w-2xl mx-auto">
+                            Saving lives is easier than you think. Follow these simple steps to become a hero.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-4 gap-8 relative">
+                       
+                        {[
+                            { icon: UserPlus, title: 'Register', desc: 'Create your donor profile in under 2 minutes.', color: 'text-blue-500', bg: 'bg-blue-500/10' },
+                            { icon: Search, title: 'Find / Be Found', desc: 'Advanced algorithms match donors with patients.', color: 'text-purple-500', bg: 'bg-purple-500/10' },
+                            { icon: Phone, title: 'Connect', desc: 'Securely communicate to coordinate donation.', color: 'text-pink-500', bg: 'bg-pink-500/10' },
+                            { icon: Heart, title: 'Save a Life', desc: 'Donate blood and become a real-life hero.', color: 'text-red-500', bg: 'bg-red-500/10' },
+                        ].map((step, index) => (
+                            <motion.div
+                                key={step.title}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.2 }}
+                                className="relative z-10"
+                            >
+                                <Card className="h-full text-center hover:translate-y-[-10px] transition-transform duration-300 border-page-border bg-card">
+                                    <CardBody className="p-8 flex flex-col items-center">
+                                        <div className={`w-16 h-16 rounded-full ${step.bg} flex items-center justify-center mb-6 shadow-lg`}>
+                                            <step.icon className={`w-8 h-8 ${step.color}`} />
+                                        </div>
+                                        <h3 className="text-xl font-bold mb-3 text-page">{step.title}</h3>
+                                        <p className="text-page-subtle text-sm leading-relaxed">{step.desc}</p>
                                     </CardBody>
                                 </Card>
                             </motion.div>
@@ -353,7 +402,7 @@ export function HomePage() {
                                     <h2 className="text-5xl font-display font-black mb-6">
                                         <span className="gradient-text">Ready to Save Lives?</span>
                                     </h2>
-                                    <p className="text-2xl text-gray-400 mb-10 max-w-3xl mx-auto">
+                                    <p className="text-2xl text-page-subtle mb-10 max-w-3xl mx-auto">
                                         Join our global network of heroes. Every donation saves up to 3 lives. Your journey starts now.
                                     </p>
 

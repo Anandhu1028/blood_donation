@@ -147,7 +147,7 @@ export function RegisterPage() {
         <div className="min-h-screen bg-page text-page pb-24">
 
             {/* HEADER — Metallic Ripple Dark */}
-            <div className="bg-hero-gradient text-white py-16 mb-10 border-b border-page-border">
+            <div className="bg-hero-gradient text-page py-16 mb-10 border-b border-page-border">
                 <div className="container-custom px-4 text-center">
                     <h1 className="text-4xl font-display font-extrabold mb-3">
                         Become a Donor
@@ -170,10 +170,9 @@ export function RegisterPage() {
                                         className={`
                                             w-12 h-12 rounded-full flex items-center justify-center
                                             border-2 transition-all
-                                            ${
-                                                currentStep >= step.number
-                                                    ? 'bg-accent border-accent text-white shadow-lg shadow-accent/40'
-                                                    : 'border-page-border text-page-subtle'
+                                            ${currentStep >= step.number
+                                                ? 'bg-accent border-accent text-white shadow-lg shadow-accent/40'
+                                                : 'border-page-border text-page-subtle'
                                             }
                                         `}
                                     >
@@ -191,10 +190,9 @@ export function RegisterPage() {
                                 {index < steps.length - 1 && (
                                     <div
                                         className={`h-0.5 flex-1 mx-2 rounded-full transition-all
-                                            ${
-                                                currentStep > step.number
-                                                    ? 'bg-accent'
-                                                    : 'bg-page-border'
+                                            ${currentStep > step.number
+                                                ? 'bg-accent'
+                                                : 'bg-page-border'
                                             }`}
                                     />
                                 )}

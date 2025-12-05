@@ -8,6 +8,7 @@ import { Footer } from './components/layout/Footer';
 import { HomePage } from './pages/HomePage';
 import { SearchPage } from './pages/SearchPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { HospitalsPage } from './pages/HospitalsPage';
 import { AboutPage } from './pages/AboutPage';
@@ -25,6 +26,7 @@ function App() {
                   <Route path="/" element={<HomePage />} />
                   <Route path="/search" element={<SearchPage />} />
                   <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/login" element={<LoginPage />} />
                   <Route path="/dashboard" element={<DashboardPage />} />
                   <Route path="/hospitals" element={<HospitalsPage />} />
                   <Route path="/about" element={<AboutPage />} />

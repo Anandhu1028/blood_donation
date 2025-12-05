@@ -6,8 +6,10 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-rose-50 via-white to-blue-50 text-gray-900 font-sans antialiased overflow-x-hidden;
-    background-attachment: fixed;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
+    @apply font-sans antialiased overflow-x-hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   h1,
@@ -28,40 +30,78 @@
 
 /* Base color variables (Option D) */
 :root {
-  --page-bg: #0A0A0A;
+  /* Dark Mode (Default) */
+  --page-bg: #050507;
   --card-bg: #141414;
-  --card-border: rgba(74,31,31,0.6); /* #4A1F1F with transparency */
+  --card-border: rgba(255, 255, 255, 0.1);
   --text-primary: #E8E8E8;
-  --text-secondary: #B0B0B0;
-  --accent: #B91C1C; /* Blood red */
+  --text-secondary: #9CA3AF;
+  --accent: #EF4444;
+  --accent-bright: #F87171;
+  --page-border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(0, 0, 0, 0.5);
+  --hero-bg: linear-gradient(90deg, #0B0B0B 0%, #140808 35%, #100909 100%);
+}
+
+html.light {
+  /* Light Mode */
+  --page-bg: #F9FAFB;
+  --card-bg: #FFFFFF;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --accent: #DC2626;
   --accent-bright: #EF4444;
-  --page-border: rgba(255,255,255,0.04);
-  --glass: rgba(255,255,255,0.02);
+  --page-border: rgba(0, 0, 0, 0.08);
+  --glass: rgba(255, 255, 255, 0.8);
+  --hero-bg: linear-gradient(90deg, #FFFFFF 0%, #F3F4F6 100%);
 }
 
 /* Utility classes used in SearchPage */
-.bg-page { background-color: var(--page-bg); }
-.text-page { color: var(--text-primary); }
-.text-page-subtle { color: var(--text-secondary); }
-.border-page-border { border-color: var(--page-border); }
-.text-accent { color: var(--accent); }
-.text-accent-muted { color: rgba(185,28,28,0.9); }
-.accent-accent { accent-color: var(--accent); }
+.bg-page {
+  background-color: var(--page-bg);
+}
+
+.text-page {
+  color: var(--text-primary);
+}
+
+.text-page-subtle {
+  color: var(--text-secondary);
+}
+
+.border-page-border {
+  border-color: var(--page-border);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-accent-muted {
+  color: rgba(185, 28, 28, 0.9);
+}
+
+.accent-accent {
+  accent-color: var(--accent);
+}
 
 /* Hero gradient (subtle dark-to-deep black with blood shade) */
 .bg-hero-gradient {
-  background: linear-gradient(90deg, rgba(11,11,11,1) 0%, rgba(20,8,8,1) 35%, rgba(16,9,9,1) 100%);
+  background: var(--hero-bg);
   background-blend-mode: overlay;
-  box-shadow: inset 0 -2px 0 rgba(255,255,255,0.02);
+  box-shadow: inset 0 -2px 0 var(--page-border);
+  transition: background 0.3s ease;
 }
 
 /* CARD PREMIUM: dark body + animated gradient top stripe */
 .card-premium {
   --grad-size: 200% 100%;
-  border-radius: 1rem; /* rounded-3xl */
+  border-radius: 1rem;
+  /* rounded-3xl */
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(20,20,20,0.9), rgba(16,16,16,0.95));
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
   box-shadow:
     0 10px 40px rgba(0, 0, 0, 0.7),
@@ -89,9 +129,10 @@
 .card-premium.hover\:card-premium-hover:hover {
   transform: translateY(-8px);
   box-shadow:
-    0 28px 80px rgba(0,0,0,0.75),
-    0 10px 30px rgba(0,0,0,0.5);
-  border-color: rgba(239,68,68,0.15); /* soft glowing border */
+    0 28px 80px rgba(0, 0, 0, 0.75),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(239, 68, 68, 0.15);
+  /* soft glowing border */
 }
 
 /* glossy overlay */
@@ -100,7 +141,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
   mix-blend-mode: overlay;
   z-index: 1;
   border-radius: inherit;
@@ -108,20 +149,34 @@
 
 /* Modal adjustments for premium look */
 .modal-premium .modal-content {
-  background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(16,16,16,0.98));
-  border: 1px solid rgba(255,255,255,0.04);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.95), rgba(16, 16, 16, 0.98));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
 }
 
 /* small helpers */
-.text-accent { color: var(--accent); }
-.bg-accent { background-color: var(--accent); color: white; }
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+  color: white;
+}
 
 /* animated gradient keyframes */
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Button accent modifications (if using plain buttons) */
@@ -131,21 +186,26 @@ button,
 }
 
 /* Make input/ selects darker (if they accept className) */
-input, select, textarea {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.04);
+input,
+select,
+textarea {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--text-primary);
 }
 
 /* Accessibility: focus rings */
 :focus {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(185,28,28,0.12);
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.12);
 }
 
 /* Small responsive tweaks */
 @media (max-width: 1024px) {
-  .sticky.top-20 { position: static; top: auto; }
+  .sticky.top-20 {
+    position: static;
+    top: auto;
+  }
 }
 
 
@@ -209,55 +269,53 @@ input, select, textarea {
   /* ---------------------------------------------
    PREMIUM BLACK CARD
 ---------------------------------------------- */
-.card-premium {
-  @apply rounded-3xl border transition-all duration-500 relative overflow-hidden;
-  background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 2px 8px rgba(0, 0, 0, 0.3);
-  color: #e5e5e5;
-}
+  .card-premium {
+    @apply rounded-3xl border transition-all duration-500 relative overflow-hidden;
+    background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 10px 40px rgba(0, 0, 0, 0.6),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #e5e5e5;
+  }
 
-/* Top animated gradient line (same as your default card) */
-.card-premium::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #FF6B6B, #F97316, #8B5CF6, #3B82F6, #2A9D8F);
-  background-size: 200% 100%;
-  animation: gradient-shift 3s linear infinite;
-}
+  /* Top animated gradient line (same as your default card) */
+  .card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FF6B6B, #F97316, #8B5CF6, #3B82F6, #2A9D8F);
+    background-size: 200% 100%;
+    animation: gradient-shift 3s linear infinite;
+  }
 
-/* Hover effect → smooth lift with neon border glow */
-.card-premium:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.7),
-    0 8px 25px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.12);
-}
+  /* Hover effect → smooth lift with neon border glow */
+  .card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.7),
+      0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.12);
+  }
 
-/* Optional glossy overlay for even more premium feel */
-.card-premium::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    145deg,
-    rgba(255, 255, 255, 0.06),
-    rgba(255, 255, 255, 0)
-  );
-  pointer-events: none;
-}
+  /* Optional glossy overlay for even more premium feel */
+  .card-premium::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
 
   /* Modern Input */
   .input {
-    @apply w-full px-6 py-4 rounded-2xl border bg-white text-gray-900 focus:outline-none transition-all duration-300;
-    border: 2px solid rgba(0, 0, 0, 0.1);
+    @apply w-full px-6 py-4 rounded-2xl border bg-transparent text-page focus:outline-none transition-all duration-300;
+    border: 2px solid var(--page-border);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
@@ -508,22 +566,22 @@ input, select, textarea {
 
 /* Critical Request Glow */
 .card-critical-glow {
-  border: 1px solid rgba(239,68,68,0.35) !important;
-  box-shadow: 0 0 25px rgba(239,68,68,0.25);
+  border: 1px solid rgba(239, 68, 68, 0.35) !important;
+  box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
 }
 
 /* Info Boxes (Premium Dark) */
 .info-box-premium {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   padding: 1rem;
   border-radius: 0.75rem;
   transition: 0.3s ease;
 }
 
 .info-box-premium:hover {
-  border-color: rgba(239,68,68,0.25);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  border-color: rgba(239, 68, 68, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
 }
 
 .info-label {

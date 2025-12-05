@@ -44,7 +44,7 @@ export function AboutPage() {
         <div className="min-h-screen bg-page text-page">
 
             {/* HERO — METALLIC RIPPLE DARK HEADER */}
-            <div className="bg-hero-gradient text-white py-20 border-b border-page-border">
+            <div className="bg-hero-gradient text-page py-20 border-b border-page-border">
                 <div className="container-custom px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -201,7 +201,7 @@ export function AboutPage() {
             </section>
 
             {/* CTA — PREMIUM DARK CLEAN */}
-            <section className="py-24 bg-hero-gradient text-white">
+            <section className="py-24 bg-hero-gradient text-page">
                 <div className="container-custom px-4 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

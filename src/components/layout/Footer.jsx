@@ -8,7 +8,9 @@ import {
     Twitter,
     Linkedin,
     Instagram,
-    Heart
+    Heart,
+    Facebook,
+    Youtube
 } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 
@@ -35,12 +37,12 @@ export function Footer() {
     const socialLinks = [
         { icon: Twitter, href: '#', label: 'Twitter' },
         { icon: Instagram, href: '#', label: 'Instagram' },
-        { icon: Linkedin, href: '#', label: 'LinkedIn' },
-        { icon: Github, href: '#', label: 'Github' },
+        { icon: Facebook, href: '#', label: 'Facebook' },
+        { icon: Youtube, href: '#', label: 'Youtube' },
     ];
 
     return (
-        <footer className="relative mt-20 bg-[#050507] border-t border-white/10 overflow-hidden">
+        <footer className="relative mt-20 bg-page border-t border-page-border overflow-hidden">
 
             {/* ANIMATIONS */}
             <style>{`
@@ -61,8 +63,8 @@ export function Footer() {
             `}</style>
 
             {/* DARK HOLOGRAPHIC BACKGROUND GLOWS */}
-            <div className="absolute -top-20 -left-10 w-[420px] h-[420px] bg-gradient-radial from-red-600/15 to-transparent blur-3xl" />
-            <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-gradient-radial from-purple-600/15 to-transparent blur-3xl" />
+            <div className="absolute -top-20 -left-10 w-[420px] h-[420px] bg-gradient-radial from-red-600/15 to-transparent blur-3xl opacity-50" />
+            <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-gradient-radial from-purple-600/15 to-transparent blur-3xl opacity-50" />
 
             <div className="container-custom px-6 py-20 relative z-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-14">
@@ -78,7 +80,9 @@ export function Footer() {
                             </span>
                         </Link>
 
-                        <p className="text-gray-500 mb-6 leading-relaxed max-w-xs">
+
+
+                        <p className="text-page-subtle mb-6 leading-relaxed max-w-xs">
                             The world's most advanced donor network — built for speed, trust, and real-world impact.
                         </p>
 
@@ -89,9 +93,9 @@ export function Footer() {
                                     key={social.label}
                                     href={social.href}
                                     aria-label={social.label}
-                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-red-500/40 transition-all duration-300 group"
+                                    className="p-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-page-border hover:border-accent/40 transition-all duration-300 group"
                                 >
-                                    <social.icon className="w-5 h-5 text-gray-400 group-hover:text-red-400 transition-colors icon-float" />
+                                    <social.icon className="w-5 h-5 text-page-subtle group-hover:text-accent transition-colors icon-float" />
                                 </a>
                             ))}
                         </div>
@@ -99,7 +103,7 @@ export function Footer() {
 
                     {/* QUICK LINKS */}
                     <div>
-                        <h3 className="text-lg font-display font-semibold text-white mb-6 tracking-wider">
+                        <h3 className="text-lg font-display font-semibold text-page mb-6 tracking-wider">
                             Quick Links
                         </h3>
                         <ul className="space-y-3">
@@ -107,9 +111,9 @@ export function Footer() {
                                 <li key={link.path}>
                                     <Link
                                         to={link.path}
-                                        className="text-gray-400 hover:text-red-400 transition-colors flex items-center gap-2 group"
+                                        className="text-page-subtle hover:text-accent transition-colors flex items-center gap-2 group"
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                                         {link.label}
                                     </Link>
                                 </li>
@@ -119,7 +123,7 @@ export function Footer() {
 
                     {/* RESOURCES */}
                     <div>
-                        <h3 className="text-lg font-display font-semibold text-white mb-6 tracking-wider">
+                        <h3 className="text-lg font-display font-semibold text-page mb-6 tracking-wider">
                             Resources
                         </h3>
                         <ul className="space-y-3">
@@ -127,9 +131,9 @@ export function Footer() {
                                 <li key={resource.label}>
                                     <a
                                         href={resource.path}
-                                        className="text-gray-400 hover:text-red-400 transition-colors flex items-center gap-2 group"
+                                        className="text-page-subtle hover:text-accent transition-colors flex items-center gap-2 group"
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        <span className="w-1.5 h-1.5 rounded-full bg-accent opacity-0 group-hover:opacity-100 transition-opacity" />
                                         {resource.label}
                                     </a>
                                 </li>
@@ -139,28 +143,28 @@ export function Footer() {
 
                     {/* CONTACT */}
                     <div>
-                        <h3 className="text-lg font-display font-semibold text-white mb-6 tracking-wider">
+                        <h3 className="text-lg font-display font-semibold text-page mb-6 tracking-wider">
                             Contact Us
                         </h3>
                         <ul className="space-y-4">
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <Mail className="w-5 h-5 text-red-400 mt-0.5 icon-float" />
-                                <a href="mailto:contact@bloodlife.com" className="hover:text-red-400 transition-colors">
-                                    contact@bloodlife.com
+                            <li className="flex items-start gap-3 text-page-subtle">
+                                <Mail className="w-5 h-5 text-accent mt-0.5 icon-float" />
+                                <a href="mailto:contact@bloodlife.com" className="hover:text-accent transition-colors">
+                                   focuzonfutures@gmail.com
                                 </a>
                             </li>
 
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <Phone className="w-5 h-5 text-red-400 mt-0.5 icon-float" />
-                                <a href="tel:+911234567890" className="hover:text-red-400 transition-colors">
+                            <li className="flex items-start gap-3 text-page-subtle">
+                                <Phone className="w-5 h-5 text-accent mt-0.5 icon-float" />
+                                <a href="tel:+911234567890" className="hover:text-accent transition-colors">
                                     +91 123 456 7890
                                 </a>
                             </li>
 
-                            <li className="flex items-start gap-3 text-gray-400">
-                                <MapPin className="w-5 h-5 text-red-400 mt-0.5 icon-float" />
+                            <li className="flex items-start gap-3 text-page-subtle">
+                                <MapPin className="w-5 h-5 text-accent mt-0.5 icon-float" />
                                 <span>
-                                    Mumbai, Maharashtra<br />India
+                                    Kerala , Kottayam , India
                                 </span>
                             </li>
                         </ul>
@@ -168,31 +172,30 @@ export function Footer() {
                 </div>
 
                 {/* BOTTOM BAR */}
-                <div className="pt-8 mt-14 border-t border-white/10">
+                <div className="pt-8 mt-14 border-t border-page-border">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
 
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-page-subtle text-sm">
                             © {currentYear} <span className="gradient-text font-semibold">{t('appName')}</span>. All rights reserved.
                         </p>
 
-                        <div className="flex items-center gap-2 text-gray-500 text-sm">
+                        <div className="flex items-center gap-2 text-page-subtle text-sm">
                             <span>Made with</span>
                             <Heart className="w-4 h-4 text-red-500 fill-red-500 icon-pulse" />
                             <span>to save lives</span>
                         </div>
 
                         <div className="flex gap-6 text-sm">
-                            <a href="#" className="text-gray-500 hover:text-red-400 transition-colors">
+                            <a href="#" className="text-page-subtle hover:text-accent transition-colors">
                                 Privacy Policy
                             </a>
-                            <a href="#" className="text-gray-500 hover:text-red-400 transition-colors">
+                            <a href="#" className="text-page-subtle hover:text-accent transition-colors">
                                 Terms of Service
                             </a>
                         </div>
 
                     </div>
                 </div>
-
             </div>
         </footer>
     );
