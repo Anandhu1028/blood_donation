@@ -108,229 +108,188 @@ export function HomePage() {
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                {/* Gradient Orbs */}
-                <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-red-500/20 to-transparent blur-3xl animate-pulse" />
-                <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-radial from-purple-500/20 to-transparent blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-blue-500/10 to-transparent blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+<section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    {/* Gradient Orbs */}
+    <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-radial from-red-500/20 to-transparent blur-3xl animate-pulse" />
+    <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-gradient-radial from-purple-500/20 to-transparent blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-gradient-radial from-blue-500/10 to-transparent blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
 
-                <div className="container-custom px-4 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
-                        {/* Left Content */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -100 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                            className="text-center lg:text-left"
-                        >
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.5 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ delay: 0.2 }}
-                                className="inline-block mb-6"
-                            >
-                                <span className="px-6 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-red-500/30 text-white-400 text-sm  uppercase tracking-wider backdrop-blur-xl">
-                                    🩸 Saving Lives, One Drop at a Time
-                                </span>
-                            </motion.div>
+    <div className="container-custom px-4 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-                            <motion.h1
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="text-7xl md:text-8xl font-display font-black mb-6 leading-none"
-                            >
-                                <span className="gradient-text">BloodLife</span>
-                            </motion.h1>
-
-                            <motion.p
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="text-2xl text-page-subtle mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
-                            >
-                                The world's most advanced blood donor network. Connect instantly with verified donors and save lives in real-time.
-                            </motion.p>
-
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.5 }}
-                                className="flex flex-wrap gap-4 justify-center lg:justify-start"
-                            >
-                                <Link to="/search">
-                                    <Button size="lg" className="glow-effect group">
-                                        <Search className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                                        Find Donors
-                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                    </Button>
-                                </Link>
-                                <Link to="/register">
-                                    <Button size="lg" variant="outline" className="group">
-                                        <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                                        Become a Hero
-                                    </Button>
-                                </Link>
-                            </motion.div>
-
-                            {/* Quick Stats */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.6 }}
-                                className="grid grid-cols-3 gap-6 mt-12"
-                            >
-                                {stats.slice(0, 3).map((stat, index) => (
-                                    <div key={stat.label} className="text-center lg:text-left">
-                                        <div className={`text-4xl font-black ${stat.color} mb-1`}>
-                                            {stat.value}{stat.suffix}
-                                        </div>
-                                        <div className="text-xs text-page-subtle uppercase tracking-wider">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </motion.div>
-                        </motion.div>
-
-                        {/* Right Content - Blood Mascot */}
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 1, delay: 0.3 }}
-                            className="perspective-2000 relative"
-                        >
-                            {/* Multiple Layered Red Glow Background */}
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.3, 1],
-                                    opacity: [0.4, 0.8, 0.4],
-                                }}
-                                transition={{
-                                    duration: 2,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                className="absolute inset-0 bg-gradient-radial from-red-600/60 via-red-500/30 to-transparent blur-3xl"
-                            />
-
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.4, 1],
-                                    opacity: [0.3, 0.7, 0.3],
-                                }}
-                                transition={{
-                                    duration: 2.5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: 0.5,
-                                }}
-                                className="absolute inset-0 bg-gradient-radial from-red-500/50 via-pink-500/25 to-transparent blur-2xl"
-                            />
-
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.2, 1],
-                                    opacity: [0.5, 0.9, 0.5],
-                                }}
-                                transition={{
-                                    duration: 1.8,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: 0.3,
-                                }}
-                                className="absolute inset-0 bg-gradient-radial from-red-400/40 via-red-300/20 to-transparent blur-xl"
-                            />
-
-                            {/* Blood Mascot Image with Heartbeat */}
-                            <motion.div
-                                animate={{
-                                    scale: [1, 1.05, 1],
-                                }}
-                                transition={{
-                                    duration: 1.5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                }}
-                                className="relative z-10"
-                            >
-                                <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto">
-                                    {/* Rotating Red Glow Orbs */}
-                                    <motion.div
-                                        animate={{
-                                            rotate: 360,
-                                        }}
-                                        transition={{
-                                            duration: 20,
-                                            repeat: Infinity,
-                                            ease: "linear",
-                                        }}
-                                        className="absolute inset-0"
-                                    >
-                                        <div className="absolute top-0 left-1/2 w-40 h-40 bg-red-500/40 rounded-full blur-3xl -translate-x-1/2 shadow-[0_0_60px_rgba(239,68,68,0.6)]" />
-                                        <div className="absolute bottom-0 right-1/2 w-40 h-40 bg-red-600/40 rounded-full blur-3xl translate-x-1/2 shadow-[0_0_60px_rgba(220,38,38,0.6)]" />
-                                        <div className="absolute top-1/2 left-0 w-32 h-32 bg-pink-500/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(236,72,153,0.5)]" />
-                                        <div className="absolute top-1/2 right-0 w-32 h-32 bg-red-400/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(248,113,113,0.5)]" />
-                                    </motion.div>
-
-                                    {/* Main Image with Enhanced Red Shadow */}
-                                    <motion.img
-                                       src="/blood_donation/images/blood-mascot.png"
-                                        alt="Blood Donation Mascot"
-                                        className="relative z-10 w-full h-full object-contain"
-                                        style={{
-                                            filter: 'drop-shadow(0 0 40px rgba(167, 0, 22, 0.8)) drop-shadow(0 0 20px rgba(220, 38, 38, 0.9))',
-                                        }}
-                                        animate={{
-                                            y: [0, -10, 0],
-                                        }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: "easeInOut",
-                                        }}
-                                    />
-
-                                    {/* Red Sparkle Effects */}
-                                    {[...Array(8)].map((_, i) => (
-                                        <motion.div
-                                            key={i}
-                                            animate={{
-                                                scale: [0, 1, 0],
-                                                opacity: [0, 1, 0],
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                delay: i * 0.3,
-                                            }}
-                                            className="absolute w-3 h-3 bg-red-300 rounded-full shadow-[0_0_10px_rgba(252,165,165,0.8)]"
-                                            style={{
-                                                top: `${Math.random() * 100}%`,
-                                                left: `${Math.random() * 100}%`,
-                                            }}
-                                        />
-                                    ))}
-                                </div>
-                            </motion.div>
-                        </motion.div>
-                    </div>
-                </div>
-
-                {/* Scroll Indicator */}
+            {/* Left Content */}
+            <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1, type: "spring", bounce: 0.4 }}
+                className="text-center lg:text-left"
+            >
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1 }}
-                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="inline-block mb-6"
                 >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center p-2"
-                    >
-                        <div className="w-1 h-2 bg-red-500 rounded-full" />
-                    </motion.div>
+                    <span className="px-6 py-2 rounded-full bg-gradient-to-r from-red-500/20 to-purple-500/20 border border-red-500/30 text-white-400 text-sm uppercase tracking-wider backdrop-blur-xl">
+                        🩸 Saving Lives, One Drop at a Time
+                    </span>
                 </motion.div>
-            </section>
+
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-7xl md:text-8xl font-display font-black mb-6 leading-none"
+                >
+                    <span className="gradient-text">BloodLife</span>
+                </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-2xl text-page-subtle mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0"
+                >
+                    The world's most advanced blood donor network. Connect instantly with verified donors and save lives in real-time.
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="flex flex-wrap gap-4 justify-center lg:justify-start"
+                >
+                    <Link to="/search">
+                        <Button size="lg" className="glow-effect group">
+                            <Search className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+                            Find Donors
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </Button>
+                    </Link>
+                    <Link to="/register">
+                        <Button size="lg" variant="outline" className="group">
+                            <UserPlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                            Become a Hero
+                        </Button>
+                    </Link>
+                </motion.div>
+
+                {/* Quick Stats */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="grid grid-cols-3 gap-6 mt-12"
+                >
+                    {stats.slice(0, 3).map((stat) => (
+                        <div key={stat.label} className="text-center lg:text-left">
+                            <div className={`text-4xl font-black ${stat.color} mb-1`}>
+                                {stat.value}{stat.suffix}
+                            </div>
+                            <div className="text-xs text-page-subtle uppercase tracking-wider">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
+                </motion.div>
+            </motion.div>
+
+            {/* Right Content - Blood Mascot */}
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.3 }}
+                className="perspective-2000 relative"
+            >
+                {/* Multiple Layered Glows */}
+                <motion.div
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute inset-0 bg-gradient-radial from-red-600/60 via-red-500/30 to-transparent blur-3xl"
+                />
+
+                <motion.div
+                    animate={{ scale: [1, 1.4, 1], opacity: [0.3, 0.7, 0.3] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                    className="absolute inset-0 bg-gradient-radial from-red-500/50 via-pink-500/25 to-transparent blur-2xl"
+                />
+
+                <motion.div
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.9, 0.5] }}
+                    transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+                    className="absolute inset-0 bg-gradient-radial from-red-400/40 via-red-300/20 to-transparent blur-xl"
+                />
+
+                {/* BLOOD MASCOT IMAGE FIXED FOR GITHUB PAGES */}
+                <motion.div
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="relative z-10"
+                >
+                    <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto">
+
+                        {/* Rotating Glow Orbs */}
+                        <motion.div
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                            className="absolute inset-0"
+                        >
+                            <div className="absolute top-0 left-1/2 w-40 h-40 bg-red-500/40 rounded-full blur-3xl -translate-x-1/2 shadow-[0_0_60px_rgba(239,68,68,0.6)]" />
+                            <div className="absolute bottom-0 right-1/2 w-40 h-40 bg-red-600/40 rounded-full blur-3xl translate-x-1/2 shadow-[0_0_60px_rgba(220,38,38,0.6)]" />
+                            <div className="absolute top-1/2 left-0 w-32 h-32 bg-pink-500/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(236,72,153,0.5)]" />
+                            <div className="absolute top-1/2 right-0 w-32 h-32 bg-red-400/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(248,113,113,0.5)]" />
+                        </motion.div>
+
+                        {/* ⭐ FIXED IMAGE FOR GITHUB PAGES */}
+                        <motion.img
+                            src="/blood_donation/images/blood-mascot.png"
+                            alt="Blood Donation Mascot"
+                            className="relative z-10 w-full h-full object-contain"
+                            style={{
+                                filter:
+                                    'drop-shadow(0 0 40px rgba(167, 0, 22, 0.8)) drop-shadow(0 0 20px rgba(220, 38, 38, 0.9))',
+                            }}
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        />
+
+                        {/* Sparkle Effects */}
+                        {[...Array(8)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                animate={{ scale: [0, 1, 0], opacity: [0, 1, 0] }}
+                                transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
+                                className="absolute w-3 h-3 bg-red-300 rounded-full shadow-[0_0_10px_rgba(252,165,165,0.8)]"
+                                style={{
+                                    top: `${Math.random() * 100}%`,
+                                    left: `${Math.random() * 100}%`,
+                                }}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
+            </motion.div>
+
+        </div>
+    </div>
+
+    {/* Scroll Indicator */}
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+    >
+        <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center p-2"
+        >
+            <div className="w-1 h-2 bg-red-500 rounded-full" />
+        </motion.div>
+    </motion.div>
+</section>
+
 
             {/* Stats Section */}
             <section className="section relative">
