@@ -271,9 +271,8 @@ export function HomePage() {
                                         <div className="absolute top-1/2 right-0 w-32 h-32 bg-red-400/30 rounded-full blur-2xl -translate-y-1/2 shadow-[0_0_50px_rgba(248,113,113,0.5)]" />
                                     </motion.div>
 
-                                    {/* Main Image with Enhanced Red Shadow */}
                                     <motion.img
-                                        src="/images/blood-mascot.png"
+                                        src="/blood_donation/images/blood-mascot.png"
                                         alt="Blood Donation Mascot"
                                         className="relative z-10 w-full h-full object-contain"
                                         style={{
@@ -287,7 +286,8 @@ export function HomePage() {
                                             repeat: Infinity,
                                             ease: "easeInOut",
                                         }}
-                                    />
+                                        />
+
 
                                     {/* Red Sparkle Effects */}
                                     {[...Array(8)].map((_, i) => (

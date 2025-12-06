@@ -4,14 +4,25 @@ import { Hospital, Phone, MapPin, Droplet, Clock, AlertCircle, Heart, Users, Cal
 import { Card, CardBody } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { BloodGroupBadge } from '../components/ui/BloodGroupBadge';
-import { mockHospitalRequests } from '../lib/data';
 import { formatDate } from '../lib/utils';
+import { useData } from '../contexts/DataContext';
 
 export function HospitalsPage() {
-    const [requests] = useState(mockHospitalRequests);
+    const { requests, hospitals } = useData();
     const [filter, setFilter] = useState('All');
 
-    const filteredRequests = requests.filter(r => {
+    // Join requests with hospital data
+    const enrichedRequests = requests.map(req => {
+        const hospital = hospitals.find(h => h.id === req.hospitalId);
+        return {
+            ...req,
+            hospitalName: hospital?.name || 'Unknown Hospital',
+            location: hospital?.location || 'Unknown Location',
+            contactNumber: hospital?.phone || '',
+        };
+    });
+
+    const filteredRequests = enrichedRequests.filter(r => {
         if (filter === 'All') return true;
         return r.urgency === filter;
     });
@@ -181,16 +192,6 @@ export function HospitalsPage() {
                                 </div>
                             </motion.div>
                         </div>
-
-                        {/* Additional Quote Carousel */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="text-sm text-page-subtle italic"
-                        >
-                            "Every two seconds, someone needs blood. Be the reason someone smiles today."
-                        </motion.div>
                     </motion.div>
                 </div>
             </div>
@@ -216,7 +217,7 @@ export function HospitalsPage() {
                                 {f}
                                 {f !== 'All' && (
                                     <span className="ml-2 px-2 py-0.5 rounded-full bg-white/20 text-xs">
-                                        {requests.filter(r => r.urgency === f).length}
+                                        {enrichedRequests.filter(r => r.urgency === f).length}
                                     </span>
                                 )}
                             </motion.button>
