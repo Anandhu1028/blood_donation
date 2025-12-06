@@ -104,7 +104,7 @@ export function AdminUsersPage() {
                                         <div className="flex items-center justify-end gap-2">
                                             <Button
                                                 size="sm"
-                                                className="h-8 w-8 p-0 bg-black text-white hover:bg-gray-800 border-none"
+                                                className="h-8 w-8 p-0 bg-none bg-green-700 text-white hover:bg-green-800 border-none shadow-md"
                                                 onClick={() => handleCall(donor.phone)}
                                                 title="Call User"
                                             >
@@ -112,7 +112,7 @@ export function AdminUsersPage() {
                                             </Button>
                                             <Button
                                                 size="sm"
-                                                className="h-8 w-8 p-0 bg-black text-white hover:bg-gray-800 border-none"
+                                                className="h-8 w-8 p-0 bg-none bg-red-800 text-white hover:bg-red-900 border-none shadow-md"
                                                 onClick={() => handleDelete(donor.id)}
                                                 title="Remove User"
                                             >

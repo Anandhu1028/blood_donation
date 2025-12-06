@@ -86,19 +86,17 @@ export function AdminHospitalsPage() {
 
                             <div className="flex gap-3">
                                 <Button
-                                    className="flex-1"
-                                    variant="outline"
+                                    className="flex-1 bg-none bg-green-700 text-white hover:bg-green-800 border-none shadow-md"
                                     onClick={() => handleCall(hospital.phone)}
                                 >
                                     <Phone className="w-4 h-4 mr-2" />
                                     Call
                                 </Button>
                                 <Button
-                                    className="flex-shrink-0"
-                                    variant="outline"
+                                    className="flex-shrink-0 bg-none bg-red-800 text-white hover:bg-red-900 border-none shadow-md"
                                     onClick={() => handleDelete(hospital.id)}
                                 >
-                                    <Trash2 className="w-4 h-4 text-red-500" />
+                                    <Trash2 className="w-4 h-4" />
                                 </Button>
                             </div>
                         </div>

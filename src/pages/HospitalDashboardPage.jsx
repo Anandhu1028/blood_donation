@@ -119,7 +119,7 @@ export function HospitalDashboardPage() {
                             <Button className="bg-black text-white hover:bg-gray-800 border-none" onClick={handleLogout}>
                                 <LogOut className="w-4 h-4 mr-2" /> Logout
                             </Button>
-                            <Button onClick={() => setShowRequestModal(true)} className="group">
+                            <Button variant="secondary" onClick={() => setShowRequestModal(true)} className="group">
                                 <Plus className="w-5 h-5 group-hover:rotate-90 transition-transform" />
                                 New Request
                             </Button>
@@ -184,7 +184,7 @@ export function HospitalDashboardPage() {
                                             <p className="text-xs uppercase font-bold text-page-subtle">{request.urgency} Urgency</p>
                                         </div>
                                     </div>
-                                    <Button size="sm" className="bg-black text-white hover:bg-gray-800 border-none" onClick={() => deleteRequest(request.id)}>
+                                    <Button size="sm" className="bg-none bg-red-800 text-white hover:bg-red-900 border-none shadow-md" onClick={() => deleteRequest(request.id)}>
                                         <Trash2 className="w-4 h-4" />
                                     </Button>
                                 </div>
