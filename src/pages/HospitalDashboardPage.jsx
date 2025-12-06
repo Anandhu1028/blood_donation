@@ -104,7 +104,7 @@ export function HospitalDashboardPage() {
                             </div>
                         </div>
                         <div className="flex gap-3">
-                            <Button variant="outline" onClick={handleLogout}>
+                            <Button className="bg-black text-white hover:bg-gray-800 border-none" onClick={handleLogout}>
                                 <LogOut className="w-4 h-4 mr-2" /> Logout
                             </Button>
                             <Button onClick={() => setShowRequestModal(true)} className="group">
@@ -172,7 +172,7 @@ export function HospitalDashboardPage() {
                                             <p className="text-xs uppercase font-bold text-page-subtle">{request.urgency} Urgency</p>
                                         </div>
                                     </div>
-                                    <Button size="sm" variant="outline" className="text-red-500 hover:bg-red-500/10 hover:border-red-500/20" onClick={() => deleteRequest(request.id)}>
+                                    <Button size="sm" className="bg-black text-white hover:bg-gray-800 border-none" onClick={() => deleteRequest(request.id)}>
                                         <Trash2 className="w-4 h-4" />
                                     </Button>
                                 </div>
@@ -228,7 +228,7 @@ export function HospitalDashboardPage() {
                             </div>
                             <div className="flex gap-2 mt-6">
                                 <Button className="flex-1" onClick={handleRequestSubmit}>Post Request</Button>
-                                <Button className="flex-1" variant="outline" onClick={() => setShowRequestModal(false)}>Cancel</Button>
+                                <Button className="flex-1 bg-black text-white hover:bg-gray-800 border-none" onClick={() => setShowRequestModal(false)}>Cancel</Button>
                             </div>
                         </div>
                     </motion.div>
@@ -256,7 +256,7 @@ export function HospitalDashboardPage() {
                         </div>
                         <div className="flex gap-2 mt-6">
                             <Button className="flex-1" onClick={handleInventorySave}>Save Changes</Button>
-                            <Button className="flex-1" variant="outline" onClick={() => setShowInventoryModal(false)}>Cancel</Button>
+                            <Button className="flex-1 bg-black text-white hover:bg-gray-800 border-none" onClick={() => setShowInventoryModal(false)}>Cancel</Button>
                         </div>
                     </motion.div>
                 </div>

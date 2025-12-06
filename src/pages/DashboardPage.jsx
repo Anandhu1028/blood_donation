@@ -188,11 +188,11 @@ export function DashboardPage() {
                                 </div>
 
                                 <div className="flex gap-2">
-                                    <Button variant="outline" onClick={handleEdit} className="flex-1">
+                                    <Button onClick={handleEdit} className="flex-1 bg-black text-white hover:bg-gray-800 border-none text-sm">
                                         <Edit className="w-4 h-4" /> Edit
                                     </Button>
 
-                                    <Button variant="outline" onClick={() => setShowQRModal(true)} className="flex-1">
+                                    <Button onClick={() => setShowQRModal(true)} className="flex-1 bg-black text-white hover:bg-gray-800 border-none text-sm">
                                         <QrCode className="w-4 h-4" /> QR Card
                                     </Button>
                                 </div>
@@ -376,7 +376,7 @@ export function DashboardPage() {
                             Save Changes
                         </Button>
 
-                        <Button className="flex-1" variant="outline" onClick={() => setShowEditModal(false)}>
+                        <Button className="flex-1 bg-black text-white hover:bg-gray-800 border-none" onClick={() => setShowEditModal(false)}>
                             Cancel
                         </Button>
                     </div>
@@ -438,7 +438,7 @@ export function DashboardPage() {
                             Confirm Schedule
                         </Button>
 
-                        <Button className="flex-1" variant="outline" onClick={() => setShowScheduleModal(false)}>
+                        <Button className="flex-1 bg-black text-white hover:bg-gray-800 border-none" onClick={() => setShowScheduleModal(false)}>
                             Cancel
                         </Button>
                     </div>
@@ -471,7 +471,7 @@ export function DashboardPage() {
                             Yes, Delete
                         </Button>
 
-                        <Button className="flex-1" variant="outline" onClick={() => setShowDeleteModal(false)}>
+                        <Button className="flex-1 bg-black text-white hover:bg-gray-800 border-none" onClick={() => setShowDeleteModal(false)}>
                             Cancel
                         </Button>
                     </div>

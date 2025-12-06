@@ -93,8 +93,8 @@ export function AdminUsersPage() {
                                     </td>
                                     <td className="p-4">
                                         <span className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-medium border ${donor.verified
-                                                ? 'bg-green-500/10 text-green-600 border-green-500/20'
-                                                : 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20'
+                                            ? 'bg-green-500/10 text-green-600 border-green-500/20'
+                                            : 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20'
                                             }`}>
                                             <span className={`w-1.5 h-1.5 rounded-full ${donor.verified ? 'bg-green-500' : 'bg-yellow-500'}`} />
                                             {donor.verified ? 'Verified' : 'Pending'}
@@ -104,8 +104,7 @@ export function AdminUsersPage() {
                                         <div className="flex items-center justify-end gap-2">
                                             <Button
                                                 size="sm"
-                                                variant="outline"
-                                                className="h-8 w-8 p-0 border-blue-200 text-blue-600 hover:bg-blue-50 dark:border-blue-800 dark:hover:bg-blue-900/20"
+                                                className="h-8 w-8 p-0 bg-black text-white hover:bg-gray-800 border-none"
                                                 onClick={() => handleCall(donor.phone)}
                                                 title="Call User"
                                             >
@@ -113,8 +112,7 @@ export function AdminUsersPage() {
                                             </Button>
                                             <Button
                                                 size="sm"
-                                                variant="outline"
-                                                className="h-8 w-8 p-0 border-red-200 text-red-600 hover:bg-red-50 dark:border-red-800 dark:hover:bg-red-900/20"
+                                                className="h-8 w-8 p-0 bg-black text-white hover:bg-gray-800 border-none"
                                                 onClick={() => handleDelete(donor.id)}
                                                 title="Remove User"
                                             >
