@@ -28,7 +28,9 @@ import {
     formatPhoneNumber,
     isDonorEligible,
     calculateNextDonationDate,
-    daysUntilEligible
+    daysUntilEligible,
+    validatePhone,
+    validateEmail
 } from '../lib/utils';
 
 import { toast } from 'sonner';
@@ -69,7 +71,17 @@ export function DashboardPage() {
         setShowEditModal(true);
     };
 
+
     const handleSaveEdit = () => {
+        if (!validatePhone(editData.phone)) {
+            toast.error('Invalid phone number format');
+            return;
+        }
+        if (editData.email && !validateEmail(editData.email)) {
+            toast.error('Invalid email format');
+            return;
+        }
+
         updateDonor(currentDonor.id, editData);
         setShowEditModal(false);
         toast.success('Profile updated successfully');

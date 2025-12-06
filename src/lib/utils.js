@@ -98,6 +98,21 @@ export function validateEmail(email) {
 }
 
 /**
+ * Validate name (No numbers allowed)
+ */
+export function validateName(name) {
+    const nameRegex = /^[a-zA-Z\s]+$/;
+    return nameRegex.test(name);
+}
+
+/**
+ * Validate password (At least 8 characters)
+ */
+export function validatePassword(password) {
+    return password && password.length >= 8;
+}
+
+/**
  * Generate OTP (mock)
  */
 export function generateOTP() {

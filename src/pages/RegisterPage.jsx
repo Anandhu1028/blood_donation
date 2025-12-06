@@ -21,7 +21,7 @@ import { Button } from '../components/ui/Button';
 import { useDonor } from '../contexts/DonorContext';
 import { useData } from '../contexts/DataContext';
 import { bloodGroups, indianStates, idProofTypes } from '../lib/data';
-import { validatePhone, validateEmail, generateOTP } from '../lib/utils';
+import { validatePhone, validateEmail, validateName, validatePassword, generateOTP } from '../lib/utils';
 import { toast } from 'sonner';
 
 export function RegisterPage() {
@@ -57,20 +57,37 @@ export function RegisterPage() {
         const newErrors = {};
         if (registrationType === 'donor') {
             if (currentStep === 1) {
-                if (!donorData.name) newErrors.name = 'Name required';
+                if (!donorData.name) {
+                    newErrors.name = 'Name required';
+                } else if (!validateName(donorData.name)) {
+                    newErrors.name = 'Name cannot contain numbers';
+                }
                 if (!donorData.bloodGroup) newErrors.bloodGroup = 'Blood group required';
             }
             if (currentStep === 2) {
                 if (!donorData.phone || !validatePhone(donorData.phone)) newErrors.phone = 'Valid phone required';
+                if (donorData.email && !validateEmail(donorData.email)) newErrors.email = 'Invalid email format';
             }
             // ... more checks
         } else {
             // Hospital Validation
-            if (!hospitalData.name) newErrors.name = 'Hospital Name required';
+            if (!hospitalData.name) {
+                newErrors.name = 'Hospital Name required';
+            } else if (!validateName(hospitalData.name)) {
+                newErrors.name = 'Name cannot contain numbers';
+            }
+
             if (!hospitalData.email || !validateEmail(hospitalData.email)) newErrors.email = 'Valid Email required';
             if (!hospitalData.phone) newErrors.phone = 'phone required';
-            if (!hospitalData.password) newErrors.password = 'Password required';
+
+            if (!hospitalData.password) {
+                newErrors.password = 'Password required';
+            } else if (!validatePassword(hospitalData.password)) {
+                newErrors.password = 'Password must be at least 8 characters';
+            }
+
             if (hospitalData.password !== hospitalData.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
+
             if (!termsAccepted) {
                 toast.error('Please accept the terms and conditions');
                 return false;

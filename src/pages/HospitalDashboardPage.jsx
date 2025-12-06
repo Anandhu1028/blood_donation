@@ -53,6 +53,11 @@ export function HospitalDashboardPage() {
 
     // Handle Request Submit
     const handleRequestSubmit = () => {
+        if (!requestForm.unitsNeeded || requestForm.unitsNeeded <= 0) {
+            toast.error('Please enter a valid number of units');
+            return;
+        }
+
         addRequest({
             hospitalId: user.id,
             ...requestForm
@@ -65,6 +70,13 @@ export function HospitalDashboardPage() {
     const [inventoryUpdates, setInventoryUpdates] = useState(currentHospital?.inventory || {});
 
     const handleInventorySave = () => {
+        // Validate
+        const invalid = Object.values(inventoryUpdates).some(val => val < 0 || val === '');
+        if (invalid) {
+            toast.error('Inventory units cannot be negative');
+            return;
+        }
+
         // Save each key
         Object.keys(inventoryUpdates).forEach(bg => {
             updateHospitalInventory(user.id, bg, parseInt(inventoryUpdates[bg]));
