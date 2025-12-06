@@ -33,7 +33,7 @@ export function Navbar() {
                         <motion.div
                             whileHover={{ rotate: 360, scale: 1.1 }}
                             transition={{ duration: 0.6 }}
-                            className="relative"
+                            className="relative animate-pulse"
                         >
                             <div className="p-3 bg-gradient-to-br from-red-500 to-purple-600 rounded-2xl shadow-neon-red">
                                 <Droplet className="w-7 h-7 text-white" fill="currentColor" />
@@ -193,8 +193,8 @@ export function Navbar() {
                                         to={link.path}
                                         onClick={() => setIsOpen(false)}
                                         className={`block px-4 py-3 rounded-xl transition-all ${isActive(link.path)
-                                                ? 'bg-accent/10 text-accent border border-accent/30'
-                                                : 'bg-white/5 text-page-subtle hover:bg-white/10 hover:text-page border border-page-border'
+                                            ? 'bg-accent/10 text-accent border border-accent/30'
+                                            : 'bg-white/5 text-page-subtle hover:bg-white/10 hover:text-page border border-page-border'
                                             }`}
                                     >
                                         <span className="font-semibold uppercase text-sm tracking-wider">
@@ -228,8 +228,8 @@ export function Navbar() {
                                                     setShowLangMenu(false);
                                                 }}
                                                 className={`px-4 py-2 rounded-xl transition-all text-sm font-medium ${language === lang
-                                                        ? 'bg-accent/10 text-accent border border-accent/30'
-                                                        : 'bg-white/5 text-page-subtle hover:bg-white/10 border border-page-border'
+                                                    ? 'bg-accent/10 text-accent border border-accent/30'
+                                                    : 'bg-white/5 text-page-subtle hover:bg-white/10 border border-page-border'
                                                     }`}
                                             >
                                                 {lang.toUpperCase()}
